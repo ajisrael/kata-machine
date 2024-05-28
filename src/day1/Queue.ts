@@ -1,5 +1,5 @@
 type Node<T> = {
-    vlaue: T,
+    value: T,
     next?: Node<T>,
 }
 
@@ -16,8 +16,8 @@ export default class Queue<T> {
     enqueue(item: T): void {
         this.length++;
 
-        const node = {value: item} as Node<T>;
-        
+        const node = { value: item } as Node<T>;
+
         if (!this.tail) {
             this.tail = this.head = node;
             return;

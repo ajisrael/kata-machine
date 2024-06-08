@@ -6,11 +6,7 @@ export default function bfs(head: BinaryNode<number>, needle: number): boolean {
     q.enqueue(head);
 
     while (q.length) {
-        let curr = q.deque();
-
-        if (!curr) {
-            throw new Error("Invalid binary node!");
-        }
+        const curr = q.deque() as BinaryNode<number>;
 
         if (curr.value === needle) {
             return true;
@@ -27,3 +23,26 @@ export default function bfs(head: BinaryNode<number>, needle: number): boolean {
 
     return false;
 }
+
+function bfsWithArrayList(head: BinaryNode<number>, needle: number): boolean {
+    const q = [head];
+
+    while (q.length) {
+        const curr = q.shift() as BinaryNode<number>;
+
+        if (curr.value === needle) {
+            return true;
+        }
+
+        if (curr.left) {
+            q.push(curr.left);
+        }
+
+        if (curr.right) {
+            q.push(curr.right);
+        }
+    }
+
+    return false;
+}
+

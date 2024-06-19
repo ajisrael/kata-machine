@@ -1,4 +1,5 @@
 function walk(curr: BinaryNode<number> | null, path: number[]): number[] {
+    // base case
     if (!curr) {
         return path;
     }

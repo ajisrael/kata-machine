@@ -11,11 +11,7 @@ function find(curr: BinaryNode<number> | null, needle: number): boolean {
         return find(curr.left, needle);
     }
 
-    if (curr.value < needle) {
-        return find(curr.right, needle);
-    }
-
-    return false;
+    return find(curr.right, needle);
 }
 
 export default function dfs(head: BinaryNode<number>, needle: number): boolean {
